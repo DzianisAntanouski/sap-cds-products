@@ -1,0 +1,15 @@
+---
+applications:
+  - name: db-pruducts
+    path: ./gen/db/
+    no-route: true
+    memory: 256M
+    health-check-type: process
+    services:
+      - products
+
+  - name: app-pruducts
+    path: .
+    route: --random-route
+    services:
+      - products
